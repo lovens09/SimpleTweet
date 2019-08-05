@@ -21,7 +21,7 @@ public class TimelineActivity extends AppCompatActivity {
         setContentView(R.layout.activity_timeline);
 
         client = TwitterApp.getRestClient(this);
-        populateHomeTimeline()
+        populateHomeTimeline();
     }
 
     private void populateHomeTimeline() {

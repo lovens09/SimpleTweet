@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.codepath.apps.restclienttemplate.Tweet;
+import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import java.util.List;
 
@@ -44,12 +44,25 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         holder.tvScreenName.setText(tweet.user.screenName);
         Glide.with(context).load(tweet.user.profileImageUrl).into(holder.ivProfileImage);
 
-       // holder.tvTime.setText(tweet.getFormattedTimestamp);
+        holder.tvTime.setText(tweet.getFormattedTimestamp);
     }
 
     @Override
     public int getItemCount() {
+
         return tweets.size();
+    }
+
+    // clean all the items with the recycler view
+    public void clear() {
+        tweets.clear();
+        notifyDataSetChanged();
+    }
+
+    // add a list of item
+    public void addTweets(List<Tweet> tweetList) {
+        tweets.addAll(tweetList);
+        notifyDataSetChanged();
     }
 
     // Define the Viewholder
@@ -65,6 +78,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             ivProfileImage = itemView.findViewById(R.id.ivProfileImage);
             tvScreenName = itemView.findViewById(R.id.tvScreenName);
             tvBody = itemView.findViewById(R.id.tvBody);
+            tvTime = itemView.findViewById(R.id.tvTime);
 
         }
     }

@@ -27,7 +27,7 @@ public class TimelineActivity extends AppCompatActivity {
     private List<Tweet> tweets;
     private long lowestId;
     private SwipeRefreshLayout swipeContainer;
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
